@@ -12,6 +12,11 @@ public class WaveConfigSO : ScriptableObject
 
     [Header("Enemies")]
     [SerializeField] List<GameObject> enemyPrefabs;
+
+    [Header("Enemy Spawn")]
+    [SerializeField] float timeBetweenEnemySpawns = 1f;
+    [SerializeField] float spawnTimeVariance = 0f;
+    [SerializeField] float minimumSpawnTime = 0.2f;
     #endregion
 
     #region METHODS
@@ -47,6 +52,12 @@ public class WaveConfigSO : ScriptableObject
         return enemyPrefabs[index];
     }
     
+    public float GetRandomSpawnTime()
+    {
+        float spawnTime = Random.Range(timeBetweenEnemySpawns - spawnTimeVariance, timeBetweenEnemySpawns + spawnTimeVariance);
+
+        return Mathf.Clamp(spawnTime, minimumSpawnTime, float.MaxValue);
+    }
     #endregion
 
 }
