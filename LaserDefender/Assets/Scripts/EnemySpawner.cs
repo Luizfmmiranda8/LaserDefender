@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Enemy Spawn")]
     [SerializeField] float timeBetweenWaves = 0f;
-    public bool isLooping = true;
+    [SerializeField] bool isLooping = true;
     #endregion
 
     #region EVENTS
@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     Instantiate(currentWave.GetEnemyPrefab(i), 
                                 currentWave.GetStartingWaypoint().position, 
-                                Quaternion.identity, 
+                                Quaternion.Euler(0,0,180), 
                                 transform);
                     
                     yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
