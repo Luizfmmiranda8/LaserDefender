@@ -12,12 +12,16 @@ public class Health : MonoBehaviour
     [SerializeField] ParticleSystem hitEffect;
     [SerializeField] bool applyCameraShake;
     CameraShake cameraShake;
+
+    [Header("SFX")]
+    AudioPlayer audioPlayer;
     #endregion
 
     #region EVENTS
     void Awake()
     {
         cameraShake = Camera.main.GetComponent<CameraShake>();
+        audioPlayer = FindObjectOfType<AudioPlayer>();
     }
     void OnTriggerEnter2D(Collider2D other) 
     {
@@ -49,6 +53,7 @@ public class Health : MonoBehaviour
         if(hitEffect != null)
         {
             ParticleSystem hitEffectInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            audioPlayer.PlayDamageClip();
             Destroy(hitEffectInstance.gameObject, hitEffectInstance.main.duration + hitEffectInstance.main.startLifetime.constantMax);
         }
     }

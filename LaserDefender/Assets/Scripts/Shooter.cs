@@ -19,9 +19,16 @@ public class Shooter : MonoBehaviour
 
     [Header("AI")]
     [SerializeField] bool useAI;
+
+    [Header("SFX")]
+    AudioPlayer audioPlayer;
     #endregion
 
     #region EVENTS
+    void Awake()
+    {
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
     void Start()
     {
         if(useAI)
@@ -69,6 +76,8 @@ public class Shooter : MonoBehaviour
             float timeToNextProjectile = Random.Range(baseFiringRate - firingRateVariance, baseFiringRate + firingRateVariance);
 
             timeToNextProjectile = Mathf.Clamp(timeToNextProjectile, minimumFiringRate, float.MaxValue);
+
+            audioPlayer.PlayShootingClip();
 
             yield return new WaitForSeconds(timeToNextProjectile);
         }
