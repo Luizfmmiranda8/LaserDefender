@@ -22,6 +22,9 @@ public class Health : MonoBehaviour
 
     [Header("Player")]
     [SerializeField] bool isPlayer;
+
+    [Header("Level Manager")]
+    LevelManager levelManager;
     #endregion
 
     #region EVENTS
@@ -30,6 +33,7 @@ public class Health : MonoBehaviour
         cameraShake = Camera.main.GetComponent<CameraShake>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
     void OnTriggerEnter2D(Collider2D other) 
     {
@@ -67,7 +71,11 @@ public class Health : MonoBehaviour
         {
             scoreKeeper.IncreaseScore(scorePoints);
         }
-        
+        else
+        {
+            levelManager.LoadGameOver();
+        }
+
         Destroy(gameObject);
     }
 
