@@ -15,6 +15,13 @@ public class Health : MonoBehaviour
 
     [Header("SFX")]
     AudioPlayer audioPlayer;
+
+    [Header("Score")]
+    [SerializeField] int scorePoints = 50;
+    ScoreKeeper scoreKeeper;
+
+    [Header("Player")]
+    [SerializeField] bool isPlayer;
     #endregion
 
     #region EVENTS
@@ -22,6 +29,7 @@ public class Health : MonoBehaviour
     {
         cameraShake = Camera.main.GetComponent<CameraShake>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
     void OnTriggerEnter2D(Collider2D other) 
     {
@@ -38,14 +46,29 @@ public class Health : MonoBehaviour
     #endregion
 
     #region METHODS
+    public int GetHealth()
+    {
+        return health;
+    }
+
     void TakeDamage(int amountDamage)
     {
         health -= amountDamage;
 
         if(health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    void Die()
+    {
+        if(!isPlayer)
+        {
+            scoreKeeper.IncreaseScore(scorePoints);
+        }
+        
+        Destroy(gameObject);
     }
 
     void PlayHitEffect()
