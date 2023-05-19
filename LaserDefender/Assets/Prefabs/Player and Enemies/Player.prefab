@@ -80,10 +80,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcecd73dbc69a5040aab3b0ff93bafe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 5
   paddingLeft: 0.5
   paddingRight: 0.5
-  paddingTop: 5
+  paddingTop: 8
   paddingBottom: 2
 --- !u!114 &-3401214878443487340
 MonoBehaviour:
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d536ad018c1ef641b859eea488c2bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 100
   hitEffect: {fileID: 581778575158806815, guid: 764b4b6511d4865408c0017c48f73545, type: 3}
   applyCameraShake: 1
   scorePoints: 0

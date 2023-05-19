@@ -407,6 +407,12 @@ MonoBehaviour:
   waveConfigs:
   - {fileID: 11400000, guid: fcf7c8452333eb442b3ca1fd47b8d1a1, type: 2}
   - {fileID: 11400000, guid: 0ce7a6b7044ec394ea480a11bf14c503, type: 2}
+  - {fileID: 11400000, guid: 7406d158945b4234a95e21581333bac5, type: 2}
+  - {fileID: 11400000, guid: ca63d00592e14fd44adf1f751234070f, type: 2}
+  - {fileID: 11400000, guid: 9c03556240e41c24ba20a5736e818389, type: 2}
+  - {fileID: 11400000, guid: d597f8f845a20e5469830e02e46cac6c, type: 2}
+  - {fileID: 11400000, guid: 65184302f73465a4cbf9819f16aacc72, type: 2}
+  - {fileID: 11400000, guid: d2b8483941e928c4e9d49613bb115f19, type: 2}
   timeBetweenWaves: 2
   isLooping: 1
 --- !u!4 &505022120
@@ -1265,6 +1271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 2058633859217334509, guid: 4833dd9cc7760594b8bbc095e1e9c783, type: 3}
+      propertyPath: damageClipVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2058633859217334510, guid: 4833dd9cc7760594b8bbc095e1e9c783, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1308,6 +1318,10 @@ PrefabInstance:
     - target: {fileID: 2058633859217334510, guid: 4833dd9cc7760594b8bbc095e1e9c783, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058633859217334511, guid: 4833dd9cc7760594b8bbc095e1e9c783, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4833dd9cc7760594b8bbc095e1e9c783, type: 3}
