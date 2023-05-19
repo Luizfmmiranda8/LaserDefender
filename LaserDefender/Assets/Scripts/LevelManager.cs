@@ -8,14 +8,22 @@ public class LevelManager : MonoBehaviour
     #region VARIABLES
     [Header("Scene Load")]
     [SerializeField] float sceneLoadDelay = 2f;
+
+    [Header("Score")]
+    ScoreKeeper scoreKeeper;
     #endregion
 
     #region EVENTS
+    void Awake() 
+    {
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    }
     #endregion
 
     #region METHODS
     public void LoadGame()
     {
+        scoreKeeper.ResetScore();
         SceneManager.LoadScene("Game");
     }
 

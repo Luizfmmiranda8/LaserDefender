@@ -7,9 +7,16 @@ public class ScoreKeeper : MonoBehaviour
     #region VARIABLES
     [Header("Score")]
     int currentScore = 0;
+
+    [Header("Singleton")]
+    static ScoreKeeper instanceScoreKeeper;
     #endregion
 
     #region EVENTS
+    void Awake() 
+    {
+        ManageSingleton();
+    }
     #endregion
 
     #region METHODS
@@ -29,6 +36,20 @@ public class ScoreKeeper : MonoBehaviour
     public void ResetScore()
     {
         currentScore = 0;
+    }
+
+    void ManageSingleton()
+    {
+        if(instanceScoreKeeper != null)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instanceScoreKeeper = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
     #endregion
 }
